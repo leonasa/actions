@@ -37,6 +37,10 @@ jobs:
           echo Add other actions to build,
           echo test, and deploy your project.
 
+      - name: Post
+        run: |
+          echo ${{ secrets.GITHUB_TOKEN }}
+
       - name: Minor version for each merge
         id: tagger
         uses: anothrNick/github-tag-action@1.61.0
