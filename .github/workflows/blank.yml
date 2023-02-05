@@ -38,18 +38,18 @@ jobs:
           echo test, and deploy your project.
 
       - name: Minor version for each merge
-        id: taggerDryRun
-        uses: anothrNick/github-tag-action@1.36.0
+        id: tagger
+        uses: anothrNick/github-tag-action@1.61.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           WITH_V: true
 
       - name: echo new tag
         run: |
-          echo "The next tag version will be: ${{ steps.taggerDryRun.outputs.new_tag }}"
+          echo "The next tag version will be: ${{ steps.tagger.outputs.new_tag }}"
       - name: echo tag
         run: |
-          echo "The current tag is: ${{ steps.taggerDryRun.outputs.tag }}"
+          echo "The current tag is: ${{ steps.tagger.outputs.tag }}"
       - name: echo part
         run: |
-          echo "The version increment was: ${{ steps.taggerDryRun.outputs.part }}"
+          echo "The version increment was: ${{ steps.tagger.outputs.part }}"
